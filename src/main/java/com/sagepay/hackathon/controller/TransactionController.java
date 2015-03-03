@@ -1,24 +1,32 @@
 package com.sagepay.hackathon.controller;
 
 import com.sagepay.hackathon.model.Transaction;
-import com.sagepay.hackathon.repository.TransactionRepository;
+import com.sagepay.hackathon.service.LocationService;
+import com.sagepay.hackathon.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class TransactionController {
 
     @Autowired
-    private TransactionRepository transactionRepository;
+    private TransactionService transactionService;
 
-    @RequestMapping("/transactions")
-    public String index(Map<String, Object> model) {
-        List<Transaction> transactions = transactionRepository.findByLocationRegion("West Midlands");
-        model.put("transactions", transactions);
-        return "transactions";
+    @Autowired
+    private LocationService locationService;
+
+    @RequestMapping("/maps")
+    public ModelAndView transactions(ModelAndView mv) {
+        mv.setViewName("maps");
+
+        mv.addObject("locations", locationService.getAllLocations());
+        List<Transaction> transactions = transactionService.getTransactionsFromRegion("West Midlands");
+        mv.addObject("transactions", transactions);
+
+        return mv;
     }
 }
