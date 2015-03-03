@@ -23,8 +23,8 @@ public class MapController {
     @Autowired
     private LocationService locationService;
 
-    @RequestMapping({ "/", "" })
-    public ModelAndView initMap(ModelAndView mv) {
+    @RequestMapping({"/", ""})
+    public ModelAndView init(ModelAndView mv) {
         mv.setViewName("map");
 
         mv.addObject("locations", locationService.getAllLocations());
@@ -34,7 +34,7 @@ public class MapController {
     }
 
     @RequestMapping(value = "/filter", method = RequestMethod.POST)
-    public ModelAndView filterTransactionsByRegionOnMap(ModelAndView mv, @ModelAttribute("region") String region) {
+    public ModelAndView filterTransactionsByRegion(ModelAndView mv, @ModelAttribute("region") String region) {
         mv.setViewName("map");
 
         mv.addObject("locations", locationService.getAllLocations());
@@ -43,4 +43,5 @@ public class MapController {
 
         return mv;
     }
+
 }
