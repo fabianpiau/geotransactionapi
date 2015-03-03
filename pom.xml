@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>Hackathon</name>
+	<name>sagepay-hackathon</name>
 	<description>Sage Pay Hackathon</description>
 
 	<parent>
