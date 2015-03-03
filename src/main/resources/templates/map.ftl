@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-<select id="locations" name="locations">
-<#list locations as location>
-    <option value="${location.region}">${location.region}</option>
-</#list>
-</select>
+
+<form action="/map/filter" method="post">
+    <select id="region" name="region">
+    <#list locations as location>
+        <option value="${location.region}">${location.region}</option>
+    </#list>
+    </select>
+    <input type="submit" value="Filter"/>
+</form>
 
 <table>
 <#list transactions as transaction>
