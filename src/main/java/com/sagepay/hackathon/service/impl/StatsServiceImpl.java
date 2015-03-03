@@ -16,7 +16,6 @@ import java.util.List;
 @Service
 public class StatsServiceImpl implements StatsService {
 
-    public static final String SCOTLAND_REGION_NAME = "Scotland";
     @Autowired
     private TransactionService transactionService;
 
@@ -29,9 +28,9 @@ public class StatsServiceImpl implements StatsService {
         List<Location> locations = locationService.getAllLocations();
         for (Location location : locations) {
             String region = location.getRegion();
-            RegionTransactionStat statScotland = isScotlandAlreadyInStats(regionTransactionStats);
-            if (region.equalsIgnoreCase(SCOTLAND_REGION_NAME) && statScotland != null) {
-                updateStatsForScotland(region, statScotland);
+            RegionTransactionStat statForRegion = isRegionAlreadyInStats(regionTransactionStats, region);
+            if (statForRegion != null) {
+                updateStatsForRegion(region, statForRegion);
             } else {
                 RegionTransactionStat regionTransactionStat = new RegionTransactionStat();
                 regionTransactionStat.setRegion(region);
@@ -53,17 +52,16 @@ public class StatsServiceImpl implements StatsService {
         return totalAmount;
     }
 
-    private void updateStatsForScotland(String region, RegionTransactionStat regionTransactionStats) {
+    private void updateStatsForRegion(String region, RegionTransactionStat regionTransactionStats) {
         List<Transaction> transactions = transactionService.getTransactionsFromRegion(region);
         regionTransactionStats.setTotalAmount(regionTransactionStats.getTotalAmount() + getTotalAmountForTransactions(transactions));
-        regionTransactionStats.setNbTransactions(regionTransactionStats.getNbTransactions() + transactions.size());
     }
 
-    private RegionTransactionStat isScotlandAlreadyInStats(List<RegionTransactionStat> regionTransactionStats) {
+    private RegionTransactionStat isRegionAlreadyInStats(List<RegionTransactionStat> regionTransactionStats, final String region) {
         return (RegionTransactionStat) CollectionUtils.find(regionTransactionStats, new Predicate() {
             @Override
             public boolean evaluate(Object regionTransactionStat) {
-                return ((RegionTransactionStat) regionTransactionStat).getRegion().equalsIgnoreCase(SCOTLAND_REGION_NAME);
+                return ((RegionTransactionStat) regionTransactionStat).getRegion().equalsIgnoreCase(region);
             }
         });
     }
