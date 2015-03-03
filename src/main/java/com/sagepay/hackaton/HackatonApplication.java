@@ -4,11 +4,14 @@ import com.sagepay.hackaton.model.Location;
 import com.sagepay.hackaton.model.Transaction;
 import com.sagepay.hackaton.repository.LocationRepository;
 import com.sagepay.hackaton.repository.TransactionRepository;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -27,8 +30,15 @@ public class HackatonApplication implements CommandLineRunner {
 
     private void generateAndSaveTransactions(int nbTransactions) {
         for (int i = 0; i < nbTransactions; i++) {
-            transactionRepository.save(new Transaction(generateRandomAmout(), randomLocationFromDb()));
+            transactionRepository.save(new Transaction(generateRandomAmout(), randomLocationFromDb(), generateRandomDate()));
         }
+    }
+
+    private Date generateRandomDate() {
+        long rangeBegin = Timestamp.valueOf("2015-01-01 00:00:00").getTime();
+        long rangeEnd = new DateTime().getMillis();
+        long diff = rangeEnd - rangeBegin + 1;
+        return new Timestamp(rangeBegin + (long)(Math.random() * diff));
     }
 
     private Location randomLocationFromDb() {
@@ -49,7 +59,14 @@ public class HackatonApplication implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
         // Do something at the start
-        // transactionRepository.deleteAll();
-        // generateAndSaveTransactions(1000);
+//        transactionRepository.deleteAll();
+//        generateAndSaveTransactions(1000);
+
+        System.out.println("Transactions found with findByLocationRegion('West Midlands'):");
+        System.out.println("--------------------------------");
+        for (Transaction transaction : transactionRepository.findByLocationRegion("West Midlands")) {
+            System.out.println(transaction);
+        }
+        System.out.println();
     }
 }
