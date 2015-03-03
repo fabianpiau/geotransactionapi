@@ -1,4 +1,4 @@
-package com.sagepay.hackaton.model;
+package com.sagepay.hackathon.model;
 
 import org.springframework.data.annotation.Id;
 

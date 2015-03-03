@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sagepay</groupId>
-	<artifactId>hackaton</artifactId>
+	<artifactId>hackathon</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>Hackaton</name>
-	<description>Sage Pay Hackaton</description>
+	<name>Hackathon</name>
+	<description>Sage Pay Hackathon</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -20,7 +20,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>com.sagepay.hackaton.HackatonApplication</start-class>
+		<start-class>com.sagepay.hackathon.HackathonApplication</start-class>
 		<java.version>1.8</java.version>
         <joda-time.version>2.7</joda-time.version>
     </properties>

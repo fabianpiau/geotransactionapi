@@ -1,7 +1,7 @@
-package com.sagepay.hackaton.controller;
+package com.sagepay.hackathon.controller;
 
-import com.sagepay.hackaton.model.Transaction;
-import com.sagepay.hackaton.repository.TransactionRepository;
+import com.sagepay.hackathon.model.Transaction;
+import com.sagepay.hackathon.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

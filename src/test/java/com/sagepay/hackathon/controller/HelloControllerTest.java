@@ -1,4 +1,4 @@
-package com.sagepay.hackaton.controller;
+package com.sagepay.hackathon.controller;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

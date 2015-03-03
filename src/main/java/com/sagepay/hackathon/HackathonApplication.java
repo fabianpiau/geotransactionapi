@@ -1,9 +1,9 @@
-package com.sagepay.hackaton;
+package com.sagepay.hackathon;
 
-import com.sagepay.hackaton.model.Location;
-import com.sagepay.hackaton.model.Transaction;
-import com.sagepay.hackaton.repository.LocationRepository;
-import com.sagepay.hackaton.repository.TransactionRepository;
+import com.sagepay.hackathon.repository.TransactionRepository;
+import com.sagepay.hackathon.model.Location;
+import com.sagepay.hackathon.model.Transaction;
+import com.sagepay.hackathon.repository.LocationRepository;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Random;
 
 @SpringBootApplication
-public class HackatonApplication implements CommandLineRunner {
+public class HackathonApplication implements CommandLineRunner {
 
     @Autowired
     private LocationRepository locationRepository;
@@ -25,7 +25,7 @@ public class HackatonApplication implements CommandLineRunner {
     private TransactionRepository transactionRepository;
 
     public static void main(String[] args) {
-        SpringApplication.run(HackatonApplication.class, args);
+        SpringApplication.run(HackathonApplication.class, args);
     }
 
     private void generateAndSaveTransactions(int nbTransactions) {

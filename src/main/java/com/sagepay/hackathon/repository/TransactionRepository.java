@@ -1,6 +1,6 @@
-package com.sagepay.hackaton.repository;
+package com.sagepay.hackathon.repository;
 
-import com.sagepay.hackaton.model.Transaction;
+import com.sagepay.hackathon.model.Transaction;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
