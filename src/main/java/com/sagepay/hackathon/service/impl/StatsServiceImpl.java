@@ -7,10 +7,12 @@ import com.sagepay.hackathon.service.LocationService;
 import com.sagepay.hackathon.service.StatsService;
 import com.sagepay.hackathon.service.TransactionService;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Predicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.apache.commons.collections.Predicate;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -23,18 +25,18 @@ public class StatsServiceImpl implements StatsService {
     private LocationService locationService;
 
     @Override
-    public List<RegionTransactionStat> getAggregatedTransactionsPerRegion() {
+    public List<RegionTransactionStat> getAggregatedTransactionsPerRegion(Date begin, Date end) {
         List<RegionTransactionStat> regionTransactionStats = new ArrayList<RegionTransactionStat>();
         List<Location> locations = locationService.getAllLocations();
         for (Location location : locations) {
             String region = location.getRegion();
             RegionTransactionStat statForRegion = isRegionAlreadyInStats(regionTransactionStats, region);
             if (statForRegion != null) {
-                updateStatsForRegion(region, statForRegion);
+                updateStatsForRegion(region, statForRegion, begin, end);
             } else {
                 RegionTransactionStat regionTransactionStat = new RegionTransactionStat();
                 regionTransactionStat.setRegion(region);
-                List<Transaction> transactions = transactionService.getTransactionsFromRegion(region);
+                List<Transaction> transactions = transactionService.getTransactionsFromRegionForPeriod(region, begin, end);
                 regionTransactionStat.setNbTransactions(transactions.size());
                 regionTransactionStat.setTotalAmount(getTotalAmountForTransactions(transactions));
                 regionTransactionStats.add(regionTransactionStat);
@@ -52,8 +54,8 @@ public class StatsServiceImpl implements StatsService {
         return totalAmount;
     }
 
-    private void updateStatsForRegion(String region, RegionTransactionStat regionTransactionStats) {
-        List<Transaction> transactions = transactionService.getTransactionsFromRegion(region);
+    private void updateStatsForRegion(String region, RegionTransactionStat regionTransactionStats, Date begin, Date end) {
+        List<Transaction> transactions = transactionService.getTransactionsFromRegionForPeriod(region, begin, end);
         regionTransactionStats.setTotalAmount(regionTransactionStats.getTotalAmount() + getTotalAmountForTransactions(transactions));
     }
 
