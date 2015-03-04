@@ -3,8 +3,10 @@ package com.sagepay.hackathon.controller;
 import com.sagepay.hackathon.model.RegionTransactionStat;
 import com.sagepay.hackathon.service.StatsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.Timestamp;
@@ -19,14 +21,18 @@ public class RestApiController {
     private StatsService statsService;
 
     @RequestMapping(value = "/aggregate")
-    public @ResponseBody
-    List<RegionTransactionStat> aggregate(Date begin, Date end) {
+    public
+    @ResponseBody
+    List<RegionTransactionStat> aggregate(@RequestParam(value = "from", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date beginDate, @RequestParam(value = "to", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
 
-        long rangeBegin = Timestamp.valueOf("2015-02-01 00:00:00").getTime();
-        long rangeEnd = Timestamp.valueOf("2015-02-27 00:00:00").getTime();
-        // TODO: Take the date from the URL
+        if (beginDate == null) {
+            beginDate = new Date(Timestamp.valueOf("2014-02-01 00:00:00").getTime());
+        }
+        if (endDate == null) {
+            endDate = new Date();
+        }
 
-        return  statsService.getAggregatedTransactionsPerRegion(new Date(rangeBegin), new Date(rangeEnd));
+        return statsService.getAggregatedTransactionsPerRegion(beginDate, endDate);
     }
 
 }
