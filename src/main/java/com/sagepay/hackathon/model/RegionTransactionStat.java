@@ -1,5 +1,9 @@
 package com.sagepay.hackathon.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.math.BigDecimal;
+
 public class RegionTransactionStat {
 
     private String region;
@@ -28,8 +32,14 @@ public class RegionTransactionStat {
         this.region = region;
     }
 
-    public Integer getTotalAmount() {
+    @JsonIgnore
+    public Integer getTotalAmountAsInteger() {
         return totalAmount;
+    }
+
+    public BigDecimal getTotalAmount() {
+        BigDecimal amount = new BigDecimal(totalAmount / 100.00);
+        return amount;
     }
 
     public void setTotalAmount(Integer totalAmount) {

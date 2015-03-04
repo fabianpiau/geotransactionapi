@@ -53,14 +53,14 @@ public class HackathonApplication implements CommandLineRunner {
     }
 
     private Integer generateRandomAmout() {
-        return randInt(1, 1000);
+        return randInt(100, 100000);
     }
 
     @Override
     public void run(String... strings) throws Exception {
         // Do something at start
 //        transactionRepository.deleteAll();
-//        generateAndSaveTransactions(1000);
+//        generateAndSaveTransactions(5000);
 
 //        System.out.println("Transactions found with findByLocationRegion('West Midlands'):");
 //        System.out.println("--------------------------------");

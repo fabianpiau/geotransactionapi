@@ -56,7 +56,7 @@ public class StatsServiceImpl implements StatsService {
 
     private void updateStatsForRegion(String region, RegionTransactionStat regionTransactionStats, Date begin, Date end) {
         List<Transaction> transactions = transactionService.getTransactionsFromRegionForPeriod(region, begin, end);
-        regionTransactionStats.setTotalAmount(regionTransactionStats.getTotalAmount() + getTotalAmountForTransactions(transactions));
+        regionTransactionStats.setTotalAmount(regionTransactionStats.getTotalAmountAsInteger() + getTotalAmountForTransactions(transactions));
     }
 
     private RegionTransactionStat isRegionAlreadyInStats(List<RegionTransactionStat> regionTransactionStats, final String region) {
