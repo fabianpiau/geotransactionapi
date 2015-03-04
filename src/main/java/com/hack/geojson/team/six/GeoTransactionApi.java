@@ -28,9 +28,39 @@ public class GeoTransactionApi implements CommandLineRunner {
         SpringApplication.run(GeoTransactionApi.class, args);
     }
 
-    private void generateAndSaveTransactions(int nbTransactions) {
-        for (int i = 0; i < nbTransactions; i++) {
-            transactionRepository.save(new Transaction(generateRandomAmout(), randomLocationFromDb(), generateRandomDate()));
+    private void generateAndSaveTransactions() {
+        for (int i = 0; i < 50; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("Wales"), generateRandomDate()));
+        }
+        for (int i = 0; i < 1010; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("London"), generateRandomDate()));
+        }
+        for (int i = 0; i < 20; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("North West"), generateRandomDate()));
+        }
+        for (int i = 0; i < 550; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("Scotland"), generateRandomDate()));
+        }
+        for (int i = 0; i < 230; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("South West"), generateRandomDate()));
+        }
+        for (int i = 0; i < 560; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("South East"), generateRandomDate()));
+        }
+        for (int i = 0; i < 750; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("Yorkshire And The Hamber"), generateRandomDate()));
+        }
+        for (int i = 0; i < 362; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("North East"), generateRandomDate()));
+        }
+        for (int i = 0; i < 125; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("West Midlands"), generateRandomDate()));
+        }
+        for (int i = 0; i < 300; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("Northern Ireland"), generateRandomDate()));
+        }
+        for (int i = 0; i < 250; i++) {
+            transactionRepository.save(new Transaction(generateRandomAmout(), locationRepository.findByRegion("East Midlands"), generateRandomDate()));
         }
     }
 
@@ -60,7 +90,7 @@ public class GeoTransactionApi implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         // Do something at start
 //        transactionRepository.deleteAll();
-//        generateAndSaveTransactions(5000);
+//        generateAndSaveTransactions();
 
 //        System.out.println("Transactions found with findByLocationRegion('West Midlands'):");
 //        System.out.println("--------------------------------");
