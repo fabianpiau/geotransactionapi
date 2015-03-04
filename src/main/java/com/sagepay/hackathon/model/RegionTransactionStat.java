@@ -3,6 +3,7 @@ package com.sagepay.hackathon.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class RegionTransactionStat {
 
@@ -38,8 +39,7 @@ public class RegionTransactionStat {
     }
 
     public BigDecimal getTotalAmount() {
-        BigDecimal amount = new BigDecimal(totalAmount / 100.00);
-        return amount;
+        return new BigDecimal(totalAmount / 100.00).setScale(2, RoundingMode.HALF_UP);
     }
 
     public void setTotalAmount(Integer totalAmount) {
