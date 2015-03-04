@@ -3,7 +3,7 @@ C:\mongodb\mongod.exe --dbpath C:\mongodb\data
 C:\mongodb\mongo.exe
 
 ** Import Mongo
-mongoimport --db test --collection location --type csv --headerline --file "C:\Users\Fabian\Desktop\uk-location.csv"
+mongoimport --db test --collection location --type csv --headerline --file "C:\Users\Fabian\Desktop\import.csv"
 
 ** Querying
 db.location.remove( { county: "Harrogate"} )

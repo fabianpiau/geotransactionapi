@@ -53,7 +53,7 @@ public class HackathonApplication implements CommandLineRunner {
     }
 
     private Integer generateRandomAmout() {
-        return randInt(100, 100000);
+        return randInt(1, 1000);
     }
 
     @Override
