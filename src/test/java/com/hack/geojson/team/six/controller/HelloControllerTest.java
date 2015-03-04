@@ -1,4 +1,4 @@
-package com.sagepay.hackathon.controller;
+package com.hack.geojson.team.six.controller;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

@@ -1,6 +1,6 @@
-package com.sagepay.hackathon.service;
+package com.hack.geojson.team.six.service;
 
-import com.sagepay.hackathon.model.Location;
+import com.hack.geojson.team.six.model.Location;
 
 import java.util.List;
 

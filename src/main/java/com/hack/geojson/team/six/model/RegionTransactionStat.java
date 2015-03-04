@@ -1,4 +1,4 @@
-package com.sagepay.hackathon.model;
+package com.hack.geojson.team.six.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

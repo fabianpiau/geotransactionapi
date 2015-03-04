@@ -20,7 +20,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>com.sagepay.hackathon.HackathonApplication</start-class>
+		<start-class>com.hack.geojson.team.six.GeoTransactionApi</start-class>
 		<java.version>1.8</java.version>
         <joda-time.version>2.7</joda-time.version>
         <commons-collections.version>3.2.1</commons-collections.version>

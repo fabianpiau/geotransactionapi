@@ -1,9 +1,9 @@
-package com.sagepay.hackathon;
+package com.hack.geojson.team.six;
 
-import com.sagepay.hackathon.repository.TransactionRepository;
-import com.sagepay.hackathon.model.Location;
-import com.sagepay.hackathon.model.Transaction;
-import com.sagepay.hackathon.repository.LocationRepository;
+import com.hack.geojson.team.six.repository.TransactionRepository;
+import com.hack.geojson.team.six.model.Location;
+import com.hack.geojson.team.six.model.Transaction;
+import com.hack.geojson.team.six.repository.LocationRepository;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Random;
 
 @SpringBootApplication
-public class HackathonApplication implements CommandLineRunner {
+public class GeoTransactionApi implements CommandLineRunner {
 
     @Autowired
     private LocationRepository locationRepository;
@@ -25,7 +25,7 @@ public class HackathonApplication implements CommandLineRunner {
     private TransactionRepository transactionRepository;
 
     public static void main(String[] args) {
-        SpringApplication.run(HackathonApplication.class, args);
+        SpringApplication.run(GeoTransactionApi.class, args);
     }
 
     private void generateAndSaveTransactions(int nbTransactions) {

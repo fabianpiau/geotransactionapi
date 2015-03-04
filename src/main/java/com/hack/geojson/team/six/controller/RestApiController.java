@@ -1,7 +1,7 @@
-package com.sagepay.hackathon.controller;
+package com.hack.geojson.team.six.controller;
 
-import com.sagepay.hackathon.model.RegionTransactionStat;
-import com.sagepay.hackathon.service.StatsService;
+import com.hack.geojson.team.six.model.RegionTransactionStat;
+import com.hack.geojson.team.six.service.StatsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;

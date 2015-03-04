@@ -1,8 +1,8 @@
-package com.sagepay.hackathon.service.impl;
+package com.hack.geojson.team.six.service.impl;
 
-import com.sagepay.hackathon.model.Location;
-import com.sagepay.hackathon.repository.LocationRepository;
-import com.sagepay.hackathon.service.LocationService;
+import com.hack.geojson.team.six.model.Location;
+import com.hack.geojson.team.six.repository.LocationRepository;
+import com.hack.geojson.team.six.service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

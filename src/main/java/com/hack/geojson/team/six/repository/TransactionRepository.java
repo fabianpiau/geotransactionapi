@@ -1,6 +1,6 @@
-package com.sagepay.hackathon.repository;
+package com.hack.geojson.team.six.repository;
 
-import com.sagepay.hackathon.model.Transaction;
+import com.hack.geojson.team.six.model.Transaction;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Date;

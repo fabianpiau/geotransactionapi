@@ -1,6 +1,6 @@
-package com.sagepay.hackathon.repository;
+package com.hack.geojson.team.six.repository;
 
-import com.sagepay.hackathon.model.Location;
+import com.hack.geojson.team.six.model.Location;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface LocationRepository extends MongoRepository<Location, String> {

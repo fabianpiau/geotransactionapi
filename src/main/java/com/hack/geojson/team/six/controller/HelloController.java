@@ -1,4 +1,4 @@
-package com.sagepay.hackathon.controller;
+package com.hack.geojson.team.six.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
