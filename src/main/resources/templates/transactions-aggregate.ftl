@@ -2,9 +2,9 @@
 <html lang="en">
 <body>
 
-<form action="/map/aggregate" method="post">
+<form action="/transactions/aggregate" method="post">
 
-    <input type="submit" value="Filter"/>
+    <input type="submit" value="Aggregate on period"/>
 </form>
 
 <table>

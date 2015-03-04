@@ -2,7 +2,7 @@
 <html lang="en">
 <body>
 
-<form action="/map/filter" method="post">
+<form action="/transactions/filter" method="post">
     <select id="region" name="region">
     <#list locations as location>
         <option value="${location.region}">${location.region}</option>

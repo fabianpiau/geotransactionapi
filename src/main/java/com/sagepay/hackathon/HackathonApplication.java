@@ -58,15 +58,15 @@ public class HackathonApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        // Do something at the start
+        // Do something at start
 //        transactionRepository.deleteAll();
 //        generateAndSaveTransactions(1000);
 
-        System.out.println("Transactions found with findByLocationRegion('West Midlands'):");
-        System.out.println("--------------------------------");
-        for (Transaction transaction : transactionRepository.findByLocationRegion("West Midlands")) {
-            System.out.println(transaction);
-        }
-        System.out.println();
+//        System.out.println("Transactions found with findByLocationRegion('West Midlands'):");
+//        System.out.println("--------------------------------");
+//        for (Transaction transaction : transactionRepository.findByLocationRegion("West Midlands")) {
+//            System.out.println(transaction);
+//        }
+//        System.out.println();
     }
 }

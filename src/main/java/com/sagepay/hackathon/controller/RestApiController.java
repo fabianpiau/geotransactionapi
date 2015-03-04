@@ -11,15 +11,15 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-@RequestMapping("/map-stats")
+@RequestMapping("/api")
 @Controller
-public class MapStatsController {
+public class RestApiController {
 
     @Autowired
     private StatsService statsService;
 
     @RequestMapping({"/", ""})
-        public ModelAndView init(ModelAndView mv, Date begin, Date end) {
+    public ModelAndView init(ModelAndView mv, Date begin, Date end) {
         mv.setViewName("map-stats");
 
         long rangeBegin = Timestamp.valueOf("2015-02-01 00:00:00").getTime();
